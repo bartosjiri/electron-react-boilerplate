@@ -1,27 +1,7 @@
-# 1.1.0
-
-- Fix #2402
-- Simplify configs (https://github.com/electron-react-boilerplate/electron-react-boilerplate/pull/2406)
-
-# 1.0.0
-
-- Migrate to TypeScript from Flow ([#2363](https://github.com/electron-react-boilerplate/electron-react-boilerplate/pull/2363))
-- Use browserslist for `@babel/preset-env` targets ([#2368](https://github.com/electron-react-boilerplate/electron-react-boilerplate/pull/2368))
-- Use preload script, disable `nodeIntegration` in renderer process for [improved security](https://www.electronjs.org/docs/tutorial/security#2-do-not-enable-nodejs-integration-for-remote-content) ([#2365](https://github.com/electron-react-boilerplate/electron-react-boilerplate/pull/2365))
-- Add support for azure pipelines ([#2369](https://github.com/electron-react-boilerplate/electron-react-boilerplate/pull/2369))
-- Disable sourcemaps in production
-
-# 0.18.1 (2019.12.12)
-
-- Fix HMR env bug ([#2343](https://github.com/electron-react-boilerplate/electron-react-boilerplate/pull/2343))
-- Bump all deps to latest semver
-- Bump to `electron@7`
-
 # 0.18.0 (2019.11.19)
 
-- Bump electron to `electron@6` (`electron@7` introduces breaking changes to testcafe end to end tests)
-- Revert back to [two `package.json` structure](https://www.electron.build/tutorials/two-package-structure)
 - Bump all deps to latest semver
+- Revert back to [two `package.json` structure](https://www.electron.build/tutorials/two-package-structure)
 
 # 0.17.1 (2018.11.20)
 

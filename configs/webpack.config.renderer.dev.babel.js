@@ -1,3 +1,5 @@
+/* eslint global-require: off, import/no-dynamic-require: off */
+
 /**
  * Build config for development electron renderer process that uses
  * Hot-Module-Replacement
@@ -11,15 +13,10 @@ import webpack from 'webpack';
 import chalk from 'chalk';
 import merge from 'webpack-merge';
 import { spawn, execSync } from 'child_process';
-import { TypedCssModulesPlugin } from 'typed-css-modules-webpack-plugin';
 import baseConfig from './webpack.config.base';
 import CheckNodeEnv from '../internals/scripts/CheckNodeEnv';
 
-// When an ESLint server is running, we can't set the NODE_ENV so we'll check if it's
-// at the dev webpack config is not accidentally run in a production environment
-if (process.env.NODE_ENV === 'production') {
-  CheckNodeEnv('development');
-}
+CheckNodeEnv('development');
 
 const port = process.env.PORT || 1212;
 const publicPath = `http://localhost:${port}/dist`;
@@ -52,7 +49,7 @@ export default merge.smart(baseConfig, {
     ...(process.env.PLAIN_HMR ? [] : ['react-hot-loader/patch']),
     `webpack-dev-server/client?http://localhost:${port}/`,
     'webpack/hot/only-dev-server',
-    require.resolve('../app/index.tsx')
+    require.resolve('../app/index')
   ],
 
   output: {
@@ -62,6 +59,16 @@ export default merge.smart(baseConfig, {
 
   module: {
     rules: [
+      {
+        test: /\.jsx?$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            cacheDirectory: true
+          }
+        }
+      },
       {
         test: /\.global\.css$/,
         use: [
@@ -206,10 +213,6 @@ export default merge.smart(baseConfig, {
 
     new webpack.HotModuleReplacementPlugin({
       multiStep: true
-    }),
-
-    new TypedCssModulesPlugin({
-      globPattern: 'app/**/*.{css,scss,sass}'
     }),
 
     new webpack.NoEmitOnErrorsPlugin(),
