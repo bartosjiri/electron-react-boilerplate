@@ -114,6 +114,10 @@
   },
   "contributors": [
     {
+      "name": "Jiri Bartos",
+      "url": "https://bartosjiri.com"
+    },
+    {
       "name": "Vikram Rangaraj",
       "email": "vikr01@icloud.com",
       "url": "https://github.com/vikr01"

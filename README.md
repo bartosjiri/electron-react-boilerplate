@@ -1,3 +1,19 @@
+# Electron React Boilerplate
+
+Latest official [JS release](https://github.com/electron-react-boilerplate/electron-react-boilerplate/releases/tag/v0.18.0) of ERB without Flow type checker and Husky. Be sure to update essential dependencies to latest stable releases.
+
+Repository features 2 versions of the boilerplate:
+- Default folder structure ([master branch](../../tree/master/))
+- Modified folder and Redux store structure ([restructured branch](../../tree/restructured/))
+
+<br>
+<hr>
+<div align="center">
+  <i>(original README bellow)</i>
+</div>
+<hr>
+<br>
+
 <img src="internals/img/erb-banner.png" width="100%" />
 
 <br>
